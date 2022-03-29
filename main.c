@@ -3,10 +3,12 @@
 
 #include <stdlib.h>
 
+
 #define STRING_SZ 100
 #define NUMBER_SZ 40
 
 void cpu_part_1();
+void cpu_part_2();
 
 int main(void){
     info("start program");
@@ -40,5 +42,16 @@ void cpu_part_1(){
 }
 
 void cpu_part_2(){
-
+	char temp_str[STRING_SZ];
+	char number[NUMBER_SZ];
+	
+	temp_str[0] = '\0';
+	number[0] = '\0';
+	
+	reg inf = cpu_signature();
+	int step = get_data(inf.eax, MASK_STEPPING);
+	strcpy(temp_str, "Степпинг => ");
+	*number = step + '0';
+	strcat(temp_str, number);
+	info(temp_str);
 }

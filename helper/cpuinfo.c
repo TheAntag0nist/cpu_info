@@ -1,4 +1,5 @@
 #include "cpuinfo.h"
+#include "mask.h"
 
 // eax = 0
 reg max_supp_func(){
@@ -55,3 +56,8 @@ reg cpu_serial_num(){
 
     return result;
 }
+
+int get_data(int eax, masks mask){
+	return eax & mask;
+};
+

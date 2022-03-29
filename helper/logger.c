@@ -31,7 +31,7 @@ void message( const char* msg, int type){
             strcpy(msg_type_str, temp_str);
             break;
         case INFO:
-            set_color(GREEN);
+            set_color(BLUE);
             strcat(temp_str, "[ INF ");
             strcat(temp_str, curr_date_time());
             strcat(temp_str, "]");
