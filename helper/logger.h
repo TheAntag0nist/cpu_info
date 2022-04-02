@@ -11,14 +11,15 @@ enum msg_types{
     INFO,
     WARN,
     ERROR
-};
+} typedef msg_types;
 
 const char* curr_date_time();
 const char* replace_char(char srch, char replace, char* str);
-void message( const char* msg, int type);
+void message( const char* msg, msg_types type);
 
 void info(const char* msg);
 void warning(const char* msg);
 void error(const char* msg);
 
+void delimiter(char ch, int val);
 #endif
