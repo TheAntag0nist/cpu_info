@@ -1,6 +1,7 @@
 #ifndef CPUINFO_H
 #define CPUINFO_H
 
+#include <stdint.h>
 #include <stdio.h>
 
 struct reg

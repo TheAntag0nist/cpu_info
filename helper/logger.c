@@ -1,5 +1,12 @@
 #include "logger.h"
 
+void bit_depth(char* res){
+    if(sizeof(int*) == 4)
+        strcpy(res, "Bit Death: x86");
+    else if(sizeof(int*) == 8)
+        strcpy(res, "Bit Death: x64");
+}
+
 const char* curr_date_time(){
     time_t tm = time(NULL);
     return (const char*) ctime(&tm);

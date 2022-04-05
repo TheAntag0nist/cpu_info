@@ -13,6 +13,8 @@ enum msg_types{
     ERROR
 } typedef msg_types;
 
+void bit_depth(char* res);
+
 const char* curr_date_time();
 const char* replace_char(char srch, char replace, char* str);
 void message( const char* msg, msg_types type);
