@@ -31,7 +31,7 @@ void message( const char* msg, msg_types type){
     switch (type)
     {
         case NONE:
-        #ifdef _LINUX
+        #ifdef unix
             set_color(GREEN);
         #endif
             strcat(temp_str, "[ ");
@@ -40,7 +40,7 @@ void message( const char* msg, msg_types type){
             strcpy(msg_type_str, temp_str);
             break;
         case INFO:
-        #ifdef _LINUX
+        #ifdef unix
             set_color(GREEN);
         #endif
             strcat(temp_str, "[ INF ");
@@ -49,7 +49,7 @@ void message( const char* msg, msg_types type){
             strcpy(msg_type_str, temp_str);
             break;
         case WARN:
-        #ifdef _LINUX
+        #ifdef unix
             set_color(YELLOW);
         #endif
             strcat(temp_str, "[ WRN ");
@@ -58,7 +58,7 @@ void message( const char* msg, msg_types type){
             strcpy(msg_type_str, temp_str);
             break;
         case ERROR:
-        #ifdef _LINUX
+        #ifdef unix
             set_color(RED);
         #endif
             strcat(temp_str, "[ ERR ");
@@ -71,9 +71,10 @@ void message( const char* msg, msg_types type){
 
     replace_char( '\n', ' ', msg_type_str);
     printf("%s\t", msg_type_str);
-#ifdef _LINUX
-    reset_color();
-#endif
+
+    #ifdef unix
+        reset_color();
+    #endif
 
     printf("%s\n", msg);
 }

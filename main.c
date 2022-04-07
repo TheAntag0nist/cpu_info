@@ -12,6 +12,10 @@ void cpu_part_2();
 void cpu_part_3();
 void cpu_part_4();
 
+/*   Need check sprinf     */
+/*   Maybeb it works       */
+/*   On Windows and Unix   */
+
 int main(){
     info("start program");
 
@@ -127,11 +131,19 @@ void cpu_part_4(){
     char temp_num[255] = "";
 
     strcpy(serial_number, "Serial Number: ");
-    _ui64toa(inf.ecx, temp_num, 10);
+    #ifdef unix
+        sprintf(temp_num, "%d", inf.ecx);
+    #else
+        _ui64toa(inf.ecx, temp_num, 10);
+    #endif
     strcat(serial_number, temp_num);
     temp_num[0] = '\0';
     strcat(serial_number, " ");
-    _ui64toa(inf.edx, temp_num, 10);
+    #ifdef unix
+        sprintf(temp_num, "%d", inf.edx);
+    #else
+        _ui64toa(inf.edx, temp_num, 10);
+    #endif
     strcat(serial_number, temp_num);
     
     info(serial_number);

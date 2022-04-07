@@ -30,15 +30,27 @@ char* sg_data_eax(signature_eax* sg, masks_eax type){
     switch (type){
         case MASK_STEPPING:
             strcpy(result, "Stepping ID: ");
-            _ui64toa((unsigned int) sg->stepping, temp, 10);
+            #ifdef unix
+                sprintf(temp, "%d", sg->stepping);
+            #else
+                _ui64toa((unsigned int) sg->stepping, temp, 10);
+            #endif
             break;
         case MASK_MODEL:
             strcpy(result, "Model Number: ");
-            _ui64toa((unsigned int) sg->model, temp, 10);
+            #ifdef unix
+                sprintf(temp, "%d", sg->model);
+            #else
+                _ui64toa((unsigned int) sg->model, temp, 10);
+            #endif
             break;
         case MASK_FAMILY:
             strcpy(result, "Family Code: ");
-            _ui64toa((unsigned int) sg->family, temp, 10);
+            #ifdef unix
+                sprintf(temp, "%d", sg->family);
+            #else
+                _ui64toa((unsigned int) sg->family, temp, 10);
+            #endif
             break;
         case MASK_TYPE:
             strcpy(result, "Processor Type: ");
@@ -54,11 +66,19 @@ char* sg_data_eax(signature_eax* sg, masks_eax type){
             break;
         case MASK_MODEL_EX:
             strcpy(result, "Extended Model: ");
-            _ui64toa((unsigned int) sg->model_ex, temp, 10);
+            #ifdef unix
+                sprintf(temp, "%d", sg->model_ex);
+            #else
+                _ui64toa((unsigned int) sg->model_ex, temp, 10);
+            #endif
             break;
         case MASK_FAMILY_EX:
             strcpy(result, "Extended Family: ");
-            _ui64toa((unsigned int) sg->family_ex, temp, 10);
+            #ifdef unix
+                sprintf(temp, "%d", sg->family_ex);
+            #else
+                _ui64toa((unsigned int) sg->family_ex, temp, 10);
+            #endif
             break;
     }
 
@@ -76,15 +96,27 @@ char* sg_data_ebx(signature_ebx* sg, masks_ebx type){
     switch (type){
         case MASK_BRAND_ID:
             strcpy(result, "Brand ID: ");
-            _ui64toa((unsigned int) sg->brand_id, temp, 10);
+            #ifdef unix
+                sprintf(temp, "%d", sg->brand_id);
+            #else
+                _ui64toa((unsigned int) sg->brand_id, temp, 10);
+            #endif
             break;
         case MASK_CHUNKS:
             strcpy(result, "Chunks: ");
-            _ui64toa((unsigned int) sg->chunks, temp, 10);
+            #ifdef unix
+                sprintf(temp, "%d", sg->chunks);
+            #else
+                _ui64toa((unsigned int) sg->chunks, temp, 10);
+            #endif
             break;
         case MASK_APIC_ID:
             strcpy(result, "APIC ID: ");
-            _ui64toa((unsigned int) sg->apic_id, temp, 10);
+            #ifdef unix
+                sprintf(temp, "%d", sg->apic_id);
+            #else
+                _ui64toa((unsigned int) sg->apic_id, temp, 10);
+            #endif
             break;
     }
 
