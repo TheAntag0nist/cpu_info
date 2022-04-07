@@ -24,8 +24,6 @@ int main(){
     cpu_part_1();
     delimiter('=', 80);
     cpu_part_2();
-    // delimiter('=', 80);
-    // cpu_part_3();
     delimiter('=', 80);
     cpu_part_4();
     delimiter('=', 80);
